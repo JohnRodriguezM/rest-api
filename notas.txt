@@ -1,0 +1,23 @@
+flujo de comunicacion de la api rest
+
+frontend y backend,
+el frontend recibde las interacciones del usuarios, el frontend peticiona al backend y muestra la info en el frontend dada por el backend
+
+la api devuelve una respuesta en formato json
+y con esos datos de manipula el dom y se actualiza ek html
+
+spa (single page aplications)
+
+a diferencia del server side rendering
+
+carga HTML desde el servidor
+
+
+-----------------------------
+endpoints y query parameters
+
+query permite "filtrar" por una consulta
+
+
+_____________________________________
+¿que son CORS?
