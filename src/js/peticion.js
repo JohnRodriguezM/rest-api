@@ -19,38 +19,51 @@ const DOMElements = {
 }
 const main = d.querySelector('main')
 
-
+const manejoErrores = res => {
+  if (!res.ok) {
+    throw {
+      status: res.status,
+      ok: res.ok,
+    }
+  }
+}
 
 const getData = async () => {
-  
+  const { containerApi, parrafo } = DOMElements;
   try {
-    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value}&page=${number.value}`
-    console.log(URL)
+    let URL = `https://api.thedogapi.com/v1/images/searcH?limit=${text.value}&page=${number.value}`
+    /*console.log(URL)
     console.log(text)
-    console.log(number)
+    console.log(number)*/
     let response = await fetch(URL)
+    // manejo de los errores
+    manejoErrores(response)
+    console.log(response)
     let json = await response.json()
     console.log(json);
-    console.log(json.length)
+    /*console.log(json.length)*/
     if (json.length === 0) {
-      DOMElements.parrafo.innerHTML = 'cargando'
+      parrafo.innerHTML = 'cargando'
     }
     json.forEach(el => {
-      const image = d.createElement('img')
-      const { img, parrafo,containerApi } = DOMElements;
-      containerApi.appendChild(image)
-      image.src = el.url
-      setTimeout(() => containerApi.removeChild(image),4000)
-      /*d.addEventListener('click', e => {
-        if (e.target === DOMElements.btnAleatorio) {
-          const {containerApi} = DOMElements;
-          containerApi.removeChild(image)
-        }
-      })*/
+      const elementDiv = {
+        presentation: d.createElement('img'),
+        texto: d.createElement('p'),
+        breeds: d.createElement('h4')
+      }
+      // se dejan elementos por si el json trae mas información, pero no todos traen info completa, revisar ese tema
+      const { presentation, texto, breeds } = elementDiv;
+      // presentation - img
+      presentation.setAttribute('class', 'img-perritos')
+      containerApi.appendChild(presentation)
+      presentation.src = el.url
+      // texto
     })
   }
   catch (err) {
-    console.error(err);
+    location.href = 'error.html'
+    parrafo.textContent = `Status ${err.status} ok : ${err.ok}` || 'Ha ocurrido un error'
+    /*alert(`Status ${err.status} ok : ${err.ok}`)*/
   }
 
 }
@@ -63,3 +76,10 @@ form.addEventListener('submit', e => {
 })
 
 
+/*setTimeout(() => containerApi.removeChild(image),4000)*/
+/*d.addEventListener('click', e => {
+  if (e.target === DOMElements.btnAleatorio) {
+    const {containerApi} = DOMElements;
+    containerApi.removeChild(image)
+  }
+})*/

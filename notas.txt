@@ -21,3 +21,32 @@ query permite "filtrar" por una consulta
 
 _____________________________________
 ¿que son CORS?
+
+----------------------------------------
+¿que son los HTTP status codes?
+
+van desde el 100 - 500...
+
+los que estén del 200 - 300 son regularmente bien
+
+200 - 300: redirecciones hacia otras rutas
+
+400's: hay un error en la peticion del frontend
+
+401:  no tengo autorizacion para acceder a la ruta
+402: toca pagar para acceder a la informacion
+404: not found
+
+500's:
+erores en el servidor
+
+
+----------------------------------
+¿que es un api key?
+
+Es UNA de las formas en que el backend identifica quien está haciendo la peticion y para limitar ciertas cosas
+
+autorizacion vs autenticacion
+
+autenticacion: identificar (quien es quien)
+autorizacion: que permisos tiene cada quien
