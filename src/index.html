@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/stylesApi.css">
-  <title>Document</title>
-  <style>
-    
-  </style>
-</head>
-<body>
-  <header></header>
-  <main>
-    <h2>consumo api</h2>
-    <button id="aleatorio">Borrar perritos</button>
-    <form id = "form">
-      <label for="textoInput">Limite</label>
-      <input type="number" id = "textoInput">
-      <br>
-      <label for="numberInput">pagina</label>
-      <input type="number" id = "numberInput">
-      <br>
-      <input type="submit" value="Buscar" id = "submit">
-    </form>
-    <div class="contenedor">
-     <!--se crea contenido de manera dinamica-->
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/stylesApi.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <!--esta es una seccion que se pretende usar a futuro-->
+      <section class="nav">
+        <nav class="barra navigation">
+          <!-- sin defincion de contenido por ahora-->
+          <!--probablemente se use bulma css para el desarrollo de una barra de navegacion de manera mas agil-->
+        </nav>
+      </section>
+      <!-- la seccion de presentacion de la app-->
+      <section class="presentacion">
+        <h2>Perritos App</h2>
+        <!-- el boton de borrar perrito aún no tiene la funcionalidad establecida pero el código ya está escrito -->
+        <button id="aleatorio">Borrar perritos</button>
+      </section>
+      <!-- section formulario -->
+      <section class="fomulario-container">
+        <form id="form">
+          <label for="textoInput">Limite</label>
+          <br>
+          <input type="number" id="textoInput" />
+          <br />
+          <label for="numberInput">pagina</label>
+          <br>
+          <input type="number" id="numberInput" />
+          <br />
+          <input type="submit" value="Buscar" id="submit" />
+        </form>
+      </section>
 
-    
-  </main>
-  <footer></footer>
-  <script src = './js/main.js'></script>
-  <script src="./js/peticion.js"></script>
-</body>
+      <section class="contenedor">
+        <!--se crea contenido de manera dinamica-->
+      </section>
+      <section class="containerFavorites">
+        <!--aqui se crea el contenido de los perritos que seleccione como favoritos
+        
+        DEBE APARECER UN BOTÓN PARA ELIMINAR EL PERRITO DE FAVORITOS
+        
+        -->
+      </section>
+    </main>
+    <footer></footer>
+    <script src="./js/main.js"></script>
+    <script src="./js/peticion.js"></script>
+  </body>
 </html>

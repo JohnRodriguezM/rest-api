@@ -48,17 +48,49 @@ const getData = async () => {
     }
     json.forEach(el => {
       const elementDiv = {
+        containerCard: d.createElement('div'),
         presentation: d.createElement('img'),
         texto: d.createElement('p'),
-        breeds: d.createElement('h4')
+        breeds: d.createElement('h4'),
+        addDog:d.createElement('button'),
+        deleteDog: d.createElement('button')
       }
       // se dejan elementos por si el json trae mas información, pero no todos traen info completa, revisar ese tema
-      const { presentation, texto, breeds } = elementDiv;
+
+      const { presentation, addDog, containerCard, texto, breeds,deleteDog } = elementDiv;
+
+
       // presentation - img
+      containerCard.setAttribute('class','containerDogs')
+      containerApi.appendChild(containerCard)
       presentation.setAttribute('class', 'img-perritos')
-      containerApi.appendChild(presentation)
       presentation.src = el.url
-      // texto
+
+
+      // boton para añadir perrito a fav
+      addDog.setAttribute('class','addDog')
+      addDog.textContent = 'Add dog to favorites'
+
+
+      // boton para eliminar Perritos
+      deleteDog.textContent = 'borrar este perrito'
+      deleteDog.dataset.id = el.id;
+      // codigo para borrar perrito, sirve (pero no se permite acceder a ese método por parte de la API según CORS)
+      /*deleteDog.addEventListener('click',async e => {
+        if(e.target === deleteDog){
+          try{
+            let options = {
+            method: "DELETE"
+          }
+          fetch(`https://cdn2.thedogapi.com/images/${e.target.dataset.id}.jpg`,options)
+          }catch(error){
+            console.error(error)
+          }
+          
+        }
+      })*/
+      // se agregan ambos elmentos al DOM
+      containerCard.append(presentation,addDog,deleteDog)
     })
   }
   catch (err) {

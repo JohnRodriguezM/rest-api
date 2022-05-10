@@ -1,27 +1,45 @@
+.containerDogs {
+  margin: 10px auto;
+  display: flex;
+  padding: 20px 10px;
+  justify-content: center;
+  flex-direction: column; }
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
+
+.containerDogs {
+  border: 1px solid blue;
+  border-radius: 15px; }
 
 html {
   margin: 0 auto;
-  max-width: 900px;
-}
-body{
-  text-align: center;
-}
+  max-width: 900px; }
+
+body {
+  text-align: center; }
+
+.fomulario-container {
+  text-align: center; }
+  .fomulario-container form {
+    padding: 10px; }
+    .fomulario-container form input {
+      padding: 4px;
+      margin: 5px; }
+    .fomulario-container form input[type="submit"] {
+      background-color: #00bcd4; }
 
 .contenedor {
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .img-perritos {
   margin: 5px 4px;
   width: 160px;
   height: 168px;
   border-radius: 4px;
-}
+  text-align: center; }

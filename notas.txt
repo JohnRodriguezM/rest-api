@@ -50,3 +50,12 @@ autorizacion vs autenticacion
 
 autenticacion: identificar (quien es quien)
 autorizacion: que permisos tiene cada quien
+
+-----------
+¿que son los metodos HTTP?
+
+GET: es el metodo por defecto de fetch
+POST: crear
+PUT: Update (editar toda la información)
+PATCH: Update(editar solo una parte pequeña del elemento)
+DELETE: Borrar
