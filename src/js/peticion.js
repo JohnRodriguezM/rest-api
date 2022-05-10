@@ -31,7 +31,8 @@ const manejoErrores = res => {
 const getData = async () => {
   const { containerApi, parrafo } = DOMElements;
   try {
-    let URL = `https://api.thedogapi.com/v1/images/searcH?limit=${text.value}&page=${number.value}`
+    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value}&page=${number.value}api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8`
+    console.log(URL)
     /*console.log(URL)
     console.log(text)
     console.log(number)*/
