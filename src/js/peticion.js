@@ -67,11 +67,11 @@ const getData = async () => {
 const { $template, containerApi } = DOMElements;
 
 d.addEventListener('click', async function (e) {
-  const { $template, containerApi, $templateFavs, containerFavs } = DOMElements;
+  const { $template, containerApi, $templateFavs, containerFavs,secondFragment } = DOMElements;
   if (e.target.matches('.get-favoritos')) {
     try {
       // pendiente de modificar esta url para hacerla dinamica
-      let url = 'https://api.thedogapi.com/v1/favourites?limit=2&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8'
+      let URL_FAV = 'https://api.thedogapi.com/v1/favourites?limit=2&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8'
       /* let options = {
          method: 'POST',
          headers: {
@@ -82,20 +82,18 @@ d.addEventListener('click', async function (e) {
            "image_id" : d.querySelector('.addDog').dataset.id,
          }),
        };*/
-      let peticion = await fetch(url);
+      let peticion = await fetch(URL_FAV);
       console.log(peticion)
       /*console.log(options)*/
       let data = await peticion.json()
       console.log(data)
       data.forEach((el, i) => {
-        console.log(el.id);
-       /* $templateFavs.querySelector('.deleteFavorites').textContent = el
-
-        let clonee = d.importNode($templateFavs, true)
-        secondFragment.appendChild(clonee)*/
-
+        let button = $templateFavs.querySelector('.deleteFavorites')
+        button.textContent = el.id
+        let Clone = d.importNode($templateFavs,true)
+        secondFragment.appendChild(Clone)
       })
-      /*containerFavs.appendChild(secondFragment)*/
+      containerFavs.appendChild(secondFragment)
     } catch (err) {
 
     }
