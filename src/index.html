@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/stylesApi.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
   </head>
   <body>
@@ -36,40 +37,47 @@
           <br />
           <input type="submit" value="Buscar" id="submit" />
         </form>
-      </section>
-
-      <section class="contenedor">
-        <!--se crea contenido de manera dinamica-->
+        
       </section>
       <section class="containerFavorites">
+        <i id = "btn" class="fa-solid fa-bars toggle-fav"></i>
         <!--aqui se crea el contenido de los perritos que seleccione como favoritos
         
         DEBE APARECER UN BOTÓN PARA ELIMINAR EL PERRITO DE FAVORITOS
         
         -->
       </section>
+      <section class="contenedor">
+        <!--se crea contenido de manera dinamica-->
+      </section>
+     
     </main>
     <footer>
-      <button class="get-favoritos">get Favoritos</button>
+     
     </footer>
    <!--template para perritos básicos, luego se agrega a la sección contenedor-->
     <template id = "crud-template-perritosBasic">
+      
       <div class = "containerDogs">
         <img class = "img-perritos" alt="perritos">
-        <button class = "addDog"><!--se agrega dinamico --></button>
+        <i class="fa-regular fa-heart addDog"></i>
       </div>
     </template>
 
     <!--template para perritos que se añaden a favoritos-->
     <template id = "crudfavoritos">
       <div class = "favoritesDogs">
-        <!--<img class = "favotites" alt="perritosFav">-->
-        <button class="deleteFavorites"></button>
+        <img class = "favorites" alt="perritosFav">
+        <span
+        style = "color:red;"
+        class="deleteFavorites"><i class="fa-solid fa-circle-minus delete"></i></span>
       </div>
     </template>
 
     <!--<script src="./js/main.js"></script>-->
-    <script src="./js/peticion.js"></script>
+    <script type = "module" src="./js/peticion.mjs"></script>
+    <script src="./helpers/toggle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" referrerpolicy="no-referrer"></script>
   </body>
  
 </html>

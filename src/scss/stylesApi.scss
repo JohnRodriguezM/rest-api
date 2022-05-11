@@ -7,6 +7,15 @@
   flex-direction: column;
 }
 
+// class para los contenedores
+.visible{
+  display: flex;
+}
+.hidden{
+  display: none;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -41,8 +50,10 @@ body {
     }
   }
 }
-
+// estilos get de perritos normal
 .contenedor {
+  width:70%;
+  margin: 15px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -55,4 +66,30 @@ body {
   height: 168px;
   border-radius: 4px;
   text-align: center;
+}
+// estilos get de perritos favoritos
+.containerFavorites{
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap:10px;
+}
+.favoritesDogs{
+  margin: 15px auto;
+ display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  gap: 10px;
+}
+
+
+.favorites{
+  width:60px;
+  height: 60px;
+  border-radius: 50%;
 }
