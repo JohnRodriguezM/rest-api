@@ -27,11 +27,11 @@
       <section class="fomulario-container">
         <form id="form">
           <label for="textoInput">Limite</label>
-          <br>
+          <br />
           <input type="number" id="textoInput" />
           <br />
           <label for="numberInput">pagina</label>
-          <br>
+          <br />
           <input type="number" id="numberInput" />
           <br />
           <input type="submit" value="Buscar" id="submit" />
@@ -49,8 +49,27 @@
         -->
       </section>
     </main>
-    <footer></footer>
-    <script src="./js/main.js"></script>
+    <footer>
+      <button class="get-favoritos">get Favoritos</button>
+    </footer>
+   <!--template para perritos básicos, luego se agrega a la sección contenedor-->
+    <template id = "crud-template-perritosBasic">
+      <div class = "containerDogs">
+        <img class = "img-perritos" alt="perritos">
+        <button class = "addDog"><!--se agrega dinamico --></button>
+      </div>
+    </template>
+
+    <!--template para perritos que se añaden a favoritos-->
+    <template id = "crudfavoritos">
+      <div class = "favoritesDogs">
+        <!--<img class = "favotites" alt="perritosFav">-->
+        <button class="deleteFavorites"></button>
+      </div>
+    </template>
+
+    <!--<script src="./js/main.js"></script>-->
     <script src="./js/peticion.js"></script>
   </body>
+ 
 </html>
