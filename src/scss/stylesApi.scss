@@ -7,13 +7,6 @@
   flex-direction: column;
 }
 
-// class para los contenedores
-.visible{
-  display: flex;
-}
-.hidden{
-  display: none;
-}
 
 
 * {
@@ -29,12 +22,15 @@
   border-radius: 15px;
 }
 
-html {
-  margin: 0 auto;
-  max-width: 900px;
-}
-body {
+#html {
   text-align: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+#body {
+  margin: 25px auto;
+  text-align: center;
+  color: black;
 }
 
 .fomulario-container {
@@ -44,9 +40,15 @@ body {
     input {
       padding: 4px;
       margin: 5px;
+      max-width: 200px;
     }
+    /*input::placeholder{
+      text-align: center;
+    }*/
     input[type="submit"]{
-      background-color: #00bcd4;
+      color: white;
+      background-color: #1b1b32;
+      width: 80px;
     }
   }
 }
@@ -62,34 +64,75 @@ body {
 
 .img-perritos {
   margin: 5px 4px;
-  width: 160px;
-  height: 168px;
+  width: 190px;
+  height: 195px;
   border-radius: 4px;
   text-align: center;
 }
 // estilos get de perritos favoritos
 .containerFavorites{
   position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0 auto;
+  left: 10px;
+  top: 10px;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap:10px;
+  animation: all 1s ease-in-out;
 }
 .favoritesDogs{
-  margin: 15px auto;
+  margin: 10px auto;
  display: flex;
   flex-direction: column;
   justify-content:center;
   align-items:center;
-  gap: 10px;
+  gap: 6px;
+}
+// este es el botón del hamburger toggle
+#btn{
+  position: absolute;
+  top: 10px;
+  left: 24px;
+  font-size:25px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.favorites{
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 
-.favorites{
-  width:60px;
-  height: 60px;
-  border-radius: 50%;
+
+
+@media(max-width:450px){
+  .containerFavorites{
+    position: static;
+    display: inline-flex;
+    flex-direction: row;
+  }
+  #btn{
+    position: static;
+    font-size:20px;
+  }
+}
+
+#icono{
+  background-color: #5f5858;
+  width:10px;
+}
+#icono:hover{
+  background-color: red;
+}
+
+// class para los contenedores - estos manejadores de "estado" de los elementos siempre deben ir al final, por el css
+.visible{
+  display: flex;
+  
+}
+.hidden{
+  display: none;
 }

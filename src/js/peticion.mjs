@@ -44,9 +44,7 @@ const getData = async () => {
       parrafo.innerHTML = 'cargando'
     }
     json.forEach(el => {
-
       $template.querySelector('.img-perritos').src = el.url;
-      /*$template.querySelector('.addDog').textContent = 'add dog to favorites'*/
       $template.querySelector('.addDog').dataset.id = el.id;
       let clone = d.importNode($template, true)
       fragment.appendChild(clone)

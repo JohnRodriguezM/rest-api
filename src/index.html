@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id = "html">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/stylesApi.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Document</title>
   </head>
-  <body>
+  <body id = "body">
     <header></header>
     <main>
       <!--esta es una seccion que se pretende usar a futuro-->
@@ -21,63 +28,61 @@
       <!-- la seccion de presentacion de la app-->
       <section class="presentacion">
         <h2>Perritos App</h2>
-        <!-- el boton de borrar perrito aún no tiene la funcionalidad establecida pero el código ya está escrito -->
-        <button id="aleatorio">Borrar perritos</button>
       </section>
       <!-- section formulario -->
       <section class="fomulario-container">
         <form id="form">
-          <label for="textoInput">Limite</label>
+          <label for="textoInput">Limit</label>
           <br />
-          <input type="number" id="textoInput" />
+          <input type="number" id="textoInput" class = "input" 
+          placeholder="Number"/>
           <br />
-          <label for="numberInput">pagina</label>
+          <label for="numberInput">Page</label>
           <br />
-          <input type="number" id="numberInput" />
+          <input type="number" id="numberInput" class = "input" placeholder="Number"/>
           <br />
-          <input type="submit" value="Buscar" id="submit" />
+          <input type="submit" value="Buscar" id="submit" class = "button is-link "/>
         </form>
-        
       </section>
+      
+      <span id="btn" title = "hide favorites">
+        <i class="fa-solid fa-bars toggle-fav"></i>
+      </span>
       <section class="containerFavorites">
-        <i id = "btn" class="fa-solid fa-bars toggle-fav"></i>
         <!--aqui se crea el contenido de los perritos que seleccione como favoritos
-        
         DEBE APARECER UN BOTÓN PARA ELIMINAR EL PERRITO DE FAVORITOS
-        
         -->
       </section>
       <section class="contenedor">
         <!--se crea contenido de manera dinamica-->
       </section>
-     
     </main>
-    <footer>
-     
-    </footer>
-   <!--template para perritos básicos, luego se agrega a la sección contenedor-->
-    <template id = "crud-template-perritosBasic">
-      
-      <div class = "containerDogs">
-        <img class = "img-perritos" alt="perritos">
+    <footer></footer>
+    <!--template para perritos básicos, luego se agrega a la sección contenedor-->
+    <template id="crud-template-perritosBasic">
+      <div class="containerDogs">
+        <img class="img-perritos" alt="perritos" />
         <i class="fa-regular fa-heart addDog"></i>
       </div>
     </template>
 
     <!--template para perritos que se añaden a favoritos-->
-    <template id = "crudfavoritos">
-      <div class = "favoritesDogs">
-        <img class = "favorites" alt="perritosFav">
-        <span
-        style = "color:red;"
-        class="deleteFavorites"><i class="fa-solid fa-circle-minus delete"></i></span>
+    <template id="crudfavoritos">
+      <div class="favoritesDogs">
+        <img class="favorites" alt="perritosFav" />
+        <span class="deleteFavorites is-small"
+>
+          <i id = "icono" class="fa-solid fa-circle-minus delete"></i>
+        </span>
       </div>
     </template>
 
     <!--<script src="./js/main.js"></script>-->
-    <script type = "module" src="./js/peticion.mjs"></script>
+    <script type="module" src="./js/peticion.mjs"></script>
     <script src="./helpers/toggle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
   </body>
- 
 </html>

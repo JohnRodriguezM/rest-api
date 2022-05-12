@@ -4,11 +4,9 @@
 const btn = document.getElementById('btn')
 
 
-function toggle(){
-  let container = document.querySelector('.favoritesDogs')
-  console.log(container)
+let container = document.querySelector('.containerFavorites')
+
+btn.addEventListener('click',(e) => {
   container.classList.toggle('hidden')
   container.classList.toggle('visible')
-}
-
-btn.addEventListener('click', toggle)
+})
