@@ -1,7 +1,7 @@
 const $header = document.querySelector('footer');
 console.log($header)
 
-/* la variable que almacena la ubicacion es una variable que tiene un valor constante: */
+ // ? la variable que almacena la ubicacion es una variable que tiene un valor constante:
 let ubicacion = window.pageYOffset
 //por ejemplo el valor de ubicacion en inicio sería 0
 console.log(ubicacion)
@@ -25,6 +25,7 @@ window.addEventListener('scroll', () => {
     // entonces si ubicacion valia 0, queda valiendo 228
     return ubicacion = desplazamiento;
 });
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
