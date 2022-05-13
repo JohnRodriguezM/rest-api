@@ -27,12 +27,12 @@ const manejoErrores = res => {
     }
   }
 }
-/**/
+/*page=${number.value}*/
 /*api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8*/
 const getData = async () => {
   const { containerApi, parrafo, $template, fragment } = DOMElements;
   try {
-    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value}&page=${number.value}&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8`
+    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value || 2}&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8`
     console.log(URL)
     let response = await fetch(URL)
     // manejo de los errores
@@ -50,9 +50,13 @@ const getData = async () => {
       fragment.appendChild(clone)
     })
     containerApi.appendChild(fragment)
+    form.reset()
+
+    
   }
   catch (err) {
-    location.href = 'error.html'
+    console.log(err)
+    /*location.href = 'error.html'*/
   }
 }
 

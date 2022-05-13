@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" id = "html">
+<html lang="en" id="html">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/stylesApi.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css"
+      integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" referrerpolicy="no-referrer" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -13,11 +20,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="./css/stylesApi.css" />
     <title>Document</title>
   </head>
-  <body id = "body">
+  <body id="body">
     <header></header>
-    <main>
+    <main style = "margin: 0px 0px 50px 0px">
       <!--esta es una seccion que se pretende usar a futuro-->
       <section class="nav">
         <nav class="barra navigation">
@@ -27,27 +35,46 @@
       </section>
       <!-- la seccion de presentacion de la app-->
       <section class="presentacion">
-        <h2>Perritos App</h2>
+        <h2>PERRITOS APP</h2>
       </section>
       <!-- section formulario -->
       <section class="fomulario-container">
         <form id="form">
-          <label for="textoInput">Limit</label>
+          <label for="textoInput" style = "margin-bottom: 25px;">Find dogs</label>
           <br />
-          <input type="number" id="textoInput" class = "input" 
-          placeholder="Number"/>
+          <div>
+            <input
+            type="number"
+            id="textoInput"
+            class="input"
+            placeholder="Number"
+          />
+            <input
+            type="submit"
+            value="Search"
+            id="submit"
+            class="button is-link"
+          />
+          </div>
+          
+         <!-- <br />
+          <label for="numberInput">Page</label>-->
+          <!--<br />
+          <input
+            type="number"
+            id="numberInput"
+            class="input"
+            placeholder="Number"
+          />-->
           <br />
-          <label for="numberInput">Page</label>
-          <br />
-          <input type="number" id="numberInput" class = "input" placeholder="Number"/>
-          <br />
-          <input type="submit" value="Buscar" id="submit" class = "button is-link "/>
+          
         </form>
       </section>
-      
-      <span id="btn" title = "hide favorites">
-        <i class="fa-solid fa-bars toggle-fav"></i>
+
+      <span id="btn" title="hide favorites">
+        <i style = "font-size:25px" class="fa-solid fa-square-minus toggle-fav"></i>
       </span>
+      <br>
       <section class="containerFavorites">
         <!--aqui se crea el contenido de los perritos que seleccione como favoritos
         DEBE APARECER UN BOTÓN PARA ELIMINAR EL PERRITO DE FAVORITOS
@@ -57,12 +84,25 @@
         <!--se crea contenido de manera dinamica-->
       </section>
     </main>
-    <footer></footer>
+    <footer class="footer" style = "position:fixed;
+    left:0px;
+    color: #fff;
+    bottom:0px;
+    padding:12px;
+    width:100%;
+    background:#1b1b3299;">
+      <div class="content has-text-centered">
+        <p>
+          <strong>App dog</strong> by <a href="https://jgthms.com">John Rodriguez</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a></a>.
+        </p>
+      </div>
+    </footer >
     <!--template para perritos básicos, luego se agrega a la sección contenedor-->
     <template id="crud-template-perritosBasic">
-      <div class="containerDogs">
-        <img class="img-perritos" alt="perritos" />
-        <i class="fa-regular fa-heart addDog"></i>
+      <div class="group perros">
+        <img class="img-perritos w-40 h-40 group-hover:opacity-75" alt="perritos" />
+        <i id = "btn-like" class="fa-regular fa-heart addDog"></i>
       </div>
     </template>
 
@@ -70,9 +110,8 @@
     <template id="crudfavoritos">
       <div class="favoritesDogs">
         <img class="favorites" alt="perritosFav" />
-        <span class="deleteFavorites is-small"
->
-          <i id = "icono" class="fa-solid fa-circle-minus delete"></i>
+        <span class="deleteFavorites is-small">
+          <i id="icono" class="fa-solid fa-circle-minus delete" title = "delete favorite"></i>
         </span>
       </div>
     </template>
@@ -80,9 +119,6 @@
     <!--<script src="./js/main.js"></script>-->
     <script type="module" src="./js/peticion.mjs"></script>
     <script src="./helpers/toggle.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="./js/scrollHidden.js"></script>
   </body>
 </html>
