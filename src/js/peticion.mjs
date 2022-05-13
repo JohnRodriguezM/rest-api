@@ -1,7 +1,9 @@
 'use strict'
 const d = document;
 
-
+// ! TODO: sacar las funciones del ambito del addEventListener para que puedan ser usadas por aparte dentro del codigo
+// ?
+// *
 let number = d.getElementById('numberInput')
 let text = d.getElementById('textoInput')
 const submit = d.getElementById('submit')
