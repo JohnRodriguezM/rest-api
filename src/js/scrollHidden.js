@@ -1,16 +1,16 @@
 const $header = document.querySelector('footer');
-console.log($header)
+/*console.log($header)*/
 
  // ? la variable que almacena la ubicacion es una variable que tiene un valor constante:
 let ubicacion = window.pageYOffset
 //por ejemplo el valor de ubicacion en inicio sería 0
-console.log(ubicacion)
+/*console.log(ubicacion)*/
 
 
 window.addEventListener('scroll', () => {
     /* por el contrario la varible que se declara dentro de la funcion va mutando su valor en medidad que se ejecute la funcion del evento scroll  por ej: 228*/
     let desplazamiento = window.pageYOffset + 2;
-    console.log(desplazamiento)
+/*    console.log(desplazamiento)*/
     // cuando entra al condicional se comparan los valores: el valor de ubicacion es 0 mientras que el de desplazamiento puede ser de 228, por ende es falso y pasa al else
     if (ubicacion >= desplazamiento) {
         $header.style.bottom = '0'

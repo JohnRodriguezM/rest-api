@@ -1,14 +1,11 @@
 'use strict';
 
-
 const btn = document.getElementById('btn')
+const container = document.querySelector('.containerFavorites')
 
+function Toggle(element) {
+  element.classList.toggle('hidden')
+  element.classList.toggle('visible')
+}
 
-let container = document.querySelector('.containerFavorites')
-
-btn.addEventListener('click',(e) => {
-  container.classList.toggle('hidden')
-  container.classList.toggle('visible')
-
-  
-})
+btn.addEventListener('click', () => Toggle(container))
