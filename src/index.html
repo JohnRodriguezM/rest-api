@@ -21,7 +21,7 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./css/stylesApi.css" />
-    <title>Document</title>
+    <title>App Dog</title>
   </head>
   <body id="body">
     <header></header>
@@ -35,7 +35,7 @@
       </section>
       <!-- la seccion de presentacion de la app-->
       <section class="presentacion">
-        <h2>PERRITOS APP</h2>
+        <h2>Dog's App</h2>
       </section>
       <!-- section formulario -->
       <section class="fomulario-container">
@@ -59,6 +59,19 @@
           <br />
           
         </form>
+      </section>
+
+
+      <!--form to upload a cat-->
+      <section class = "uploadCat">
+        <h3>upload one photo of your dog</h3>
+        <br>
+        <form action="" id = "formUploadCat" >
+          <input class = "" type="file" name="file" id="uploadCat" class = "upload" />
+          <br> <br>
+          <input class = "button" type="button" value="Upload Photo" id = "submitPhoto"/>
+        </form>
+
       </section>
 
       <span id="btn" title="hide favorites">
@@ -113,6 +126,7 @@
     </template>
 
     <script type="module" src="./js/peticion.mjs"></script>
+    <script type = "module" src="./js/FromData.mjs"></script>
     <script src="./helpers/toggle.js"></script>
     <script src="./js/scrollHidden.js"></script>
   </body>

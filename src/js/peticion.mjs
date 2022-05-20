@@ -5,7 +5,7 @@ const d = document;
 // ?
 // *
 
-
+// * elementos del DOM
 const DOMElements = {
   //* form elements
   text: d.getElementById('textoInput'),
@@ -36,7 +36,7 @@ const {
   form
 } = DOMElements;
 
-const manejoErrores = res => {
+const errorHandling = res => {
   if (!res.ok) {
     throw {
       status: res.status,
@@ -47,20 +47,20 @@ const manejoErrores = res => {
 
 
 // main function, getData
-const getData = async () => {
+const getData = async e => {
   try {
-    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value || 2}&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8`
+    let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value || 2}`
     console.log(URL)
     let response = await fetch(URL)
     //* manejo de los errores
-    manejoErrores(response)
+    errorHandling(response)
     console.log(response)
     let json = await response.json()
     console.log(json);
     if (json.length === 0) {
       parrafo.innerHTML = 'cargando'
     }
-    json.forEach(el => {
+    json.map(el => {
       $template.querySelector('.img-perritos').src = el.url;
       $template.querySelector('.addDog').dataset.id = el.id;
       let clone = d.importNode($template, true)
@@ -79,12 +79,17 @@ const getData = async () => {
 // function getFavorites
 const getFavorites = async () => {
   try {
-    let URL_FAV = 'https://api.thedogapi.com/v1/favourites?&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8'
-    let peticion = await fetch(URL_FAV);
+    const URL_FAV = 'https://api.thedogapi.com/v1/favourites'
+    let peticion = await fetch(URL_FAV,{
+      method: 'GET',
+      headers: {
+        'X-API-KEY': 'ce0e512f-9d50-41e8-9c8b-216fb89807a8'
+      }
+    });
     // * manejo de errores
-    manejoErrores(peticion)
+    errorHandling(peticion)
     let data = await peticion.json()
-    data.forEach((el, i) => {
+    data.map(el => {
       let button = $templateFavs.querySelector('.delete')
       $templateFavs.querySelector('.favorites').src = el.image.url
       button.dataset.id = el.id
@@ -97,15 +102,11 @@ const getFavorites = async () => {
   }
 }
 
-
-
-
-// function to post a dog to favorites
-const postDog = async (e) => {
-  if (e.target.matches('.addDog')) {
+// * function to post a dog to favorites
+export const postDog = async (id) => {
     try {
-      let URL_POST_FAV = 'https://api.thedogapi.com/v1/favourites'
-      // se ejecuta funcion que retorna el objeto de opciones
+      const URL_POST_FAV = 'https://api.thedogapi.com/v1/favourites'
+      //? se ejecuta funcion que retorna el objeto de opciones
       const options = {
         method: 'POST',
         headers: {
@@ -113,24 +114,21 @@ const postDog = async (e) => {
           "x-api-key": "ce0e512f-9d50-41e8-9c8b-216fb89807a8"
         },
         body: JSON.stringify({
-          image_id: e.target.dataset.id,
+          image_id: id,
         }),
       };
       let peticion = await fetch(URL_POST_FAV, options);
       // *manejo de errores
-      manejoErrores(peticion)
+      errorHandling(peticion)
       console.log(peticion)
       let data = await peticion.json();
       console.log(data)
       location.reload()
-    } catch (err) {
-
-    }
-  }
+    } catch (err) {}
 }
 
 // function to delete a dog of favorites
-const deleteDog = (e) => {
+const deleteDog = e => {
   if (e.target.matches('.delete')) {
     let favourite_id = e.target.dataset.id
     let URL_DEL_FAV = 'https://api.thedogapi.com/v1/favourites/'
@@ -164,11 +162,17 @@ form.addEventListener('submit', e => {
 })
 
 // * event to get favorites dogs
-d.addEventListener('DOMContentLoaded', getFavorites)
+d.addEventListener('DOMContentLoaded', e => {
+  getFavorites()
+})
 
 
 // * event to post to favorite dogs
-d.addEventListener('click', e => postDog(e))
+d.addEventListener('click', e => {
+  if(e.target.matches('.addDog')){
+    postDog(e.target.dataset.id)
+  }
+})
 
 
 // * event to delete a favorite dog

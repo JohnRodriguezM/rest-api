@@ -145,3 +145,15 @@
 .hidden {
   display: none;
   transform: translate(0, 350px); }
+
+.uploadCat {
+  margin: 25px auto; }
+  .uploadCat form {
+    margin: 0 auto;
+    width: 80%; }
+    .uploadCat form input[type="button"] {
+      padding: 5px;
+      color: #fff;
+      background-color: #1b1b32; }
+    .uploadCat form input[type="file"] {
+      max-width: 350px; }

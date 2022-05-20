@@ -177,3 +177,21 @@
   display: none;
   transform: translate(0,350px);
 }
+
+// estilos del formData
+.uploadCat{
+  margin: 25px auto;
+  
+  form{
+    margin:0 auto;
+    width: 80%;
+    input[type = "button"]{
+      padding: 5px;
+      color: #fff;
+      background-color: #1b1b32;
+    }
+    input[type = "file"]{
+      max-width:350px;
+    }
+  }
+}
