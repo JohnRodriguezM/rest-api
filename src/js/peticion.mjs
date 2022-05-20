@@ -1,7 +1,7 @@
 'use strict'
 const d = document;
 
-// ! TODO: sacar las funciones del ambito del addEventListener para que puedan ser usadas por aparte dentro del codigo
+// !
 // ?
 // *
 
@@ -24,7 +24,7 @@ const DOMElements = {
 
 // destructuring de elementos
 const {
-  containerApi, 
+  containerApi,
   parrafo,
   $template,
   fragment,
@@ -33,7 +33,7 @@ const {
   secondFragment,
   text,
   submit,
-  form 
+  form
 } = DOMElements;
 
 const manejoErrores = res => {
@@ -52,7 +52,7 @@ const getData = async () => {
     let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value || 2}&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8`
     console.log(URL)
     let response = await fetch(URL)
-    // manejo de los errores
+    //* manejo de los errores
     manejoErrores(response)
     console.log(response)
     let json = await response.json()
@@ -81,6 +81,7 @@ const getFavorites = async () => {
   try {
     let URL_FAV = 'https://api.thedogapi.com/v1/favourites?&api_key=ce0e512f-9d50-41e8-9c8b-216fb89807a8'
     let peticion = await fetch(URL_FAV);
+    // * manejo de errores
     manejoErrores(peticion)
     let data = await peticion.json()
     data.forEach((el, i) => {
@@ -116,6 +117,8 @@ const postDog = async (e) => {
         }),
       };
       let peticion = await fetch(URL_POST_FAV, options);
+      // *manejo de errores
+      manejoErrores(peticion)
       console.log(peticion)
       let data = await peticion.json();
       console.log(data)
@@ -165,10 +168,21 @@ d.addEventListener('DOMContentLoaded', getFavorites)
 
 
 // * event to post to favorite dogs
-d.addEventListener('click', (e) => postDog(e))
+d.addEventListener('click', e => postDog(e))
 
 
 // * event to delete a favorite dog
 d.addEventListener('click', e => deleteDog(e))
 
 
+
+// !clousure
+const frutera = (frutasActuales) => {
+  const frutasSurtido = surtidas => frutasActuales += surtidas
+  return frutasSurtido;
+}
+
+const almacen = frutera(10)
+console.log(almacen(20))
+console.log(almacen(20))
+console.log(almacen(250))

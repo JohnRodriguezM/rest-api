@@ -59,3 +59,34 @@ POST: crear
 PUT: Update (editar toda la información)
 PATCH: Update(editar solo una parte pequeña del elemento)
 DELETE: Borrar
+
+//* header de content-type
+
+si enviamos un content-type que el backend no soporta probablemente nos va a arrojar un error
+
+tipos de content-type:
+
+- application/json
+- application/xml
+- application/x---www-form-urlencoded
+
+AUDIO:
+
+- audio/mpeg
+- video/x-ms-wma
+
+IMAGE:
+
+- image/png
+- image/jpeg
+- image/gif
+
+MULTIPART:
+
+- multipart/form-data          // para trabajar con formularios, no enviar input por input, si no el paquete completo del formulario
+
+TEXT:
+
+- text/html
+- text/css
+- text/plain
