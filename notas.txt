@@ -90,3 +90,29 @@ TEXT:
 - text/html
 - text/css
 - text/plain
+
+
+
+// otras propiedades en fetch
+
+/// mode
+
+CORS: el backend trata de limitar el acceso a la informacion
+
+/// caché
+
+- recordar lo de una solicitud anterior
+
+default,
+no-store,
+reload,
+no-cache,
+force-cache,
+only-if-cached
+
+
+/// redirect
+
+- follow,
+- error,
+- manual,

@@ -94,6 +94,9 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  --animation-duration:1s;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .favoritesDogs{
@@ -128,7 +131,7 @@
 }
 
 
-@media(max-width:450px){
+@media(max-width:500px){
   .containerFavorites{
     left:0;
     top:0;
@@ -143,6 +146,9 @@
   #btn{
     position: static;
     font-size:20px;
+  }
+  #span{
+    display: none;
   }
 }
 @media(min-width: 850px){
@@ -168,15 +174,7 @@
   background-color: red;
 }
 
-// class para los contenedores - estos manejadores de "estado" de los elementos siempre deben ir al final, por el css
-.visible{
-  display: flex;
-  transform: translate(0,350px);
-}
-.hidden{
-  display: none;
-  transform: translate(0,350px);
-}
+
 
 // estilos del formData
 .uploadCat{
@@ -194,4 +192,21 @@
       max-width:350px;
     }
   }
+}
+
+
+// class para los contenedores - estos manejadores de "estado" de los elementos siempre deben ir al final, por el css
+.visible{
+  display: flex;
+}
+.hidden{
+  display: none;
+}
+
+.manejoVerMas{
+  max-height: 100%;
+}
+.manejoVerMenos{
+  
+  min-height:200px;
 }

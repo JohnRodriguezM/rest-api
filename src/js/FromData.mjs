@@ -28,7 +28,7 @@ const uploadCatFormData = async e => {
   const res = await fetch('https://api.thedogapi.com/v1/images/upload', options)
   console.log('upload',res)
   const data = await res.json()
-  console.log('uploadddddd data',data)
+  console.log('uploaded cat',data)
   postDog(data.id)
   location.reload()
 }

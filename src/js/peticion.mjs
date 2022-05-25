@@ -181,7 +181,7 @@ d.addEventListener('click', e => deleteDog(e))
 
 
 // !clousure
-const frutera = (frutasActuales) => {
+/*const frutera = (frutasActuales) => {
   const frutasSurtido = surtidas => frutasActuales += surtidas
   return frutasSurtido;
 }
@@ -190,3 +190,4 @@ const almacen = frutera(10)
 console.log(almacen(20))
 console.log(almacen(20))
 console.log(almacen(250))
+*/
