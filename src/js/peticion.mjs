@@ -104,6 +104,7 @@ const getFavorites = async () => {
   }
 }
 
+
 // * function to post a dog to favorites
 export const postDog = async (id) => {
   try {
