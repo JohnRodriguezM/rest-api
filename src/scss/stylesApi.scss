@@ -99,7 +99,7 @@ $dark-color: #05061b;
   flex-direction: column;
   flex-wrap: wrap;
   --animation-duration: 1s;
-  max-height: 650px;
+  max-height: 500px;
   overflow: hidden;
 }
 
@@ -166,6 +166,9 @@ $dark-color: #05061b;
   #btn {
     position: static;
     font-size: 20px;
+  }
+  #span {
+    display: none;
   }
 }
 /*@media(max-width: 500px) and (max-width: 100%){

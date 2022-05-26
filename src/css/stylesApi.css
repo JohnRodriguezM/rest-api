@@ -79,7 +79,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   --animation-duration: 1s;
-  max-height: 650px;
+  max-height: 500px;
   overflow: hidden; }
 
 .favoritesDogs {
@@ -135,7 +135,9 @@
     position: static; }
   #btn {
     position: static;
-    font-size: 20px; } }
+    font-size: 20px; }
+  #span {
+    display: none; } }
 
 /*@media(max-width: 500px) and (max-width: 100%){
 #5f5858
