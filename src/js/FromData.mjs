@@ -9,15 +9,24 @@ const DomData = {
   btn_file: document.getElementById('submitPhoto')
 }
 //* destructuring object data
-const { form, btn_file } = DomData;
-
+const { form, btn_file,inputFile } = DomData;
+inputFile.addEventListener('input', e =>  {
+  let archivos = e.target.files;
+  if(archivos.length > 0){
+    const fileReader = new FileReader();
+    console.log(fileReader)
+    fileReader.onload = e => {
+      document.getElementById('preview').src = e.target.result
+      document.getElementById('preview').style.display = 'block'
+    }
+    fileReader.readAsDataURL(archivos[0])
+  }
+})
 
 //! manejo de fromData
-const uploadCatFormData = async e => {
+const uploadDogFormData = async e => {
   // ? si le paso un argumento a la instancia de FromData estoy pasandole todos los valores que vienen ahí dentro al objeto de FromData
   const formD = new FormData(form);
-  console.log(formD)
-  console.log(formD.get('file'))
   const options = {
     method : 'POST',
     headers : {
@@ -29,9 +38,10 @@ const uploadCatFormData = async e => {
   console.log('upload',res)
   const data = await res.json()
   console.log('uploaded cat',data)
-  postDog(data.id)
+  const post = await postDog(data.id)
+  console.log('soy el post', post)
   location.reload()
 }
 
 // * se llama el evento
-btn_file.addEventListener('click',uploadCatFormData)
+btn_file.addEventListener('click',uploadDogFormData)

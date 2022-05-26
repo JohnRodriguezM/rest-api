@@ -12,8 +12,13 @@ function Toggle(element) {
 
 btn.addEventListener('click', () => Toggle(container))
 
-span.onclick = () => {
+
+span.addEventListener('click', (e) => {
   container.classList.toggle('manejoVerMas')
-  span.innerHTML = 'ver menos'
   container.classList.toggle('manejoVerMenos')
-}
+  let elements = [...container.children];
+  console.log(elements)
+  elements.forEach((el) => el.classList.add('animate__animated', 'animate__zoomIn'))
+})
+
+

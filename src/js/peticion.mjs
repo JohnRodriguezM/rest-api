@@ -1,6 +1,12 @@
 'use strict'
 const d = document;
 
+
+import {helpHTTP} from '../helpers/helpHTTPS.mjs'
+// ? la ejecucion retorna un objeto con las funciones a usar
+const exeHelHTTP = helpHTTP()
+
+
 // !
 // ?
 // *
@@ -46,21 +52,17 @@ const errorHandling = res => {
 }
 
 
-// main function, getData
+//* main function, getData
 const getData = async e => {
   try {
     let URL = `https://api.thedogapi.com/v1/images/search?limit=${text.value || 2}`
-    console.log(URL)
-    let response = await fetch(URL)
-    //* manejo de los errores
-    errorHandling(response)
-    console.log(response)
-    let json = await response.json()
-    console.log(json);
-    if (json.length === 0) {
+    //* con la mini libreria creada puedo hacer la petición y obtener la data con una sola linea
+    // ! ya que internamente realiza el .json() de la data
+    let res = await exeHelHTTP.get(URL)
+    if (res.length === 0) {
       parrafo.innerHTML = 'cargando'
     }
-    json.map(el => {
+    res.map(el => {
       $template.querySelector('.img-perritos').src = el.url;
       $template.querySelector('.addDog').dataset.id = el.id;
       let clone = d.importNode($template, true)
@@ -80,7 +82,7 @@ const getData = async e => {
 const getFavorites = async () => {
   try {
     const URL_FAV = 'https://api.thedogapi.com/v1/favourites'
-    let peticion = await fetch(URL_FAV,{
+    let peticion = await fetch(URL_FAV, {
       method: 'GET',
       headers: {
         'X-API-KEY': 'ce0e512f-9d50-41e8-9c8b-216fb89807a8'
@@ -104,27 +106,27 @@ const getFavorites = async () => {
 
 // * function to post a dog to favorites
 export const postDog = async (id) => {
-    try {
-      const URL_POST_FAV = 'https://api.thedogapi.com/v1/favourites'
-      //? se ejecuta funcion que retorna el objeto de opciones
-      const options = {
-        method: 'POST',
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-          "x-api-key": "ce0e512f-9d50-41e8-9c8b-216fb89807a8"
-        },
-        body: JSON.stringify({
-          image_id: id,
-        }),
-      };
-      let peticion = await fetch(URL_POST_FAV, options);
-      // *manejo de errores
-      errorHandling(peticion)
-      console.log(peticion)
-      let data = await peticion.json();
-      console.log(data)
-      location.reload()
-    } catch (err) {}
+  try {
+    const URL_POST_FAV = 'https://api.thedogapi.com/v1/favourites'
+    //? se ejecuta funcion que retorna el objeto de opciones
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        "x-api-key": "ce0e512f-9d50-41e8-9c8b-216fb89807a8"
+      },
+      body: JSON.stringify({
+        image_id: id,
+      }),
+    };
+    let peticion = await fetch(URL_POST_FAV, options);
+    // *manejo de errores
+    errorHandling(peticion)
+    console.log(peticion)
+    let data = await peticion.json();
+    console.log(data)
+    location.reload()
+  } catch (err) { }
 }
 
 // function to delete a dog of favorites
@@ -169,7 +171,7 @@ d.addEventListener('DOMContentLoaded', e => {
 
 // * event to post to favorite dogs
 d.addEventListener('click', e => {
-  if(e.target.matches('.addDog')){
+  if (e.target.matches('.addDog')) {
     postDog(e.target.dataset.id)
   }
 })
